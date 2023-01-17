@@ -8,14 +8,17 @@ public class RadioTests {
 
     @ParameterizedTest
     @CsvSource({
-            "9, -1",
-            "9, 0",
-            "0, 1",
-            "1, 2"
+            "10, -1",
+            "10, 0",
+            "1, 1",
+            "2, 2",
+            "9, 9",
+            "10,10",
+            "11, 11"
     })
     public void shouldAmountStation(int expected, int amountStation) {
         Radio radio = new Radio(amountStation);
-        int actual = radio.getMaxStation();
+        int actual = radio.getAmountStation();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -26,7 +29,8 @@ public class RadioTests {
             "1, 1",
             "8, 8",
             "9, 9",
-            "0, 10"
+            "0, 10",
+            "0, 11"
     })
     public void shouldSetCurrentStation(int expected, int newCurrentStation) {
         Radio radio = new Radio();
